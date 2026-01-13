@@ -1,0 +1,14 @@
+{% extends 'hdr_app/base.html' %}
+{% block title %}Gallery{% endblock %}
+
+{% block content %}
+<h2 class="text-2xl font-semibold mb-6">HDR Output Gallery</h2>
+<div class="gallery-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    {% for image in images %}
+        <div class="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+            <img src="{{ image }}" alt="HDR Image" class="gallery-img">
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
+

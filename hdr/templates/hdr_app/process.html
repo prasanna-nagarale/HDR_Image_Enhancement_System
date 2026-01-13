@@ -1,0 +1,51 @@
+{% extends 'hdr_app/base.html' %}
+{% load static %}
+{% block title %}ClickCrawl | AI HDR Image Enhancer{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animation.css' %}">
+    <script defer src="{% static 'js/process.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<form id="upload-form" action="{% url 'process_hdr' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="upload-container">
+        <img class="logo" src="{% static 'images/logo.jpg' %}" width="300" alt="Logo">
+        
+        <div class="circle-wrapper">
+            <!-- Only this outer circle rotates -->
+            <div class="rotating-circle"></div>
+            
+            <!-- This inner circle stays fixed -->
+            <div class="drop-area" id="drop-area">
+                <svg id="drop-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#00bcd4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+                <p>Drag & drop your HDR images here<br>or</p>
+                <label for="fileElem" class="browse-btn">Browse</label>
+                <span id="file-counter" style="display: none; margin-top: 10px; font-size: 13px; color: #666;"></span>
+                <input type="file" name="images" id="fileElem" accept=".jpg,.jpeg,.png,.dng,.arw,.nef,.cr2" multiple hidden>
+            </div>
+        </div>
+        
+        <!-- Error message display -->
+        <div id="error-message" class="error-msg"></div>
+        
+        <!-- Hint message -->
+        <p class="hint-msg">Please upload at least 4 images </p>
+        
+        <!-- Animated loader -->
+        <div id="loader" class="loader" hidden></div>
+        
+        <!-- Action buttons -->
+        <div class="btn-container">
+            <button type="submit" class="action-btn">Process Images</button>
+            <a href="{% url 'gallery' %}" class="action-btn">View Gallery</a>
+        </div>
+    </div>
+</form>
+{% endblock %}

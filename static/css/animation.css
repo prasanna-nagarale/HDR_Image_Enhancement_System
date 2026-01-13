@@ -1,0 +1,182 @@
+/* Enhanced animations for HDR interface */
+
+/* Fade in animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Pulse effect */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Glow effect */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px rgba(0, 191, 255, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(0, 191, 255, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(0, 191, 255, 0.5);
+    }
+}
+
+/* Shake animation for errors */
+@keyframes shake {
+    0%, 100% {transform: translateX(0);}
+    10%, 30%, 50%, 70%, 90% {transform: translateX(-5px);}
+    20%, 40%, 60%, 80% {transform: translateX(5px);}
+}
+
+/* Bounce animation */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Processing effect for the rotating circle */
+@keyframes processingPulse {
+    0% {
+        box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(0, 255, 255, 0.9);
+    }
+    100% {
+        box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+    }
+}
+
+/* Animation classes */
+.fade-in {
+    animation: fadeIn 0.6s ease forwards;
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.pulse {
+    animation: pulse 2s infinite ease-in-out;
+}
+
+.glow {
+    animation: glow 2s infinite ease-in-out;
+}
+
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+.bounce {
+    animation: bounce 0.8s ease-in-out infinite;
+}
+
+/* Sequential animation classes */
+.animate-up {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.delay-1 {
+    animation-delay: 0.2s;
+}
+
+.delay-2 {
+    animation-delay: 0.4s;
+}
+
+.delay-3 {
+    animation-delay: 0.6s;
+}
+
+/* Special effects for drop area */
+.drop-area.highlight {
+    animation: glow 1.5s infinite ease-in-out;
+}
+
+.drop-area.files-added {
+    background-color: #e6f7ff;
+}
+
+.drop-area.error-shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+.drop-area.success-drop {
+    animation: pulse 0.8s ease-in-out;
+}
+
+/* Processing animation for the rotating circle */
+.rotating-circle.processing {
+    animation: spin 4s linear infinite, processingPulse 1.5s infinite ease-in-out;
+}
+
+/* Page transition effects */
+.page-loaded .upload-container {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* Float animations for icons */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-6px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.float {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Success upload animation */
+@keyframes successScale {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.success-scale {
+    animation: successScale 0.6s ease-out;
+}

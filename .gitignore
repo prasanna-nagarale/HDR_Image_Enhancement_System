@@ -1,0 +1,15 @@
+db.sqlite3
+media/
+staticfiles/
+*.dng
+*.jpg
+*.jpeg
+*.png
+*.mp4
+*.avi
+*.exe
+*.zip
+__pycache__/
+*.pyc
+*.log
+.env

@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}HDR System{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <header>
+        <img src="{% static 'images/logo.jpg' %}" alt="Logo">
+        <h1>AI HDR Image Enhancer</h1>
+    </header>
+
+    
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

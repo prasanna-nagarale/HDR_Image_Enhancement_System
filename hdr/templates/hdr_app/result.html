@@ -1,0 +1,11 @@
+{% extends 'hdr_app/base.html' %}
+
+{% block title %}HDR Result{% endblock %}
+
+{% block content %}
+    <h2>Result</h2>
+    <p>Your HDR-enhanced image is ready:</p>
+    <div style="margin-top: 30px;">
+        <img src="{{ output_url }}" alt="HDR Result" style="max-width: 100%; border-radius: 12px; box-shadow: 0 0 20px rgba(0,255,255,0.3);">
+    </div>
+{% endblock %}
